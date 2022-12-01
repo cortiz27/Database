@@ -9,7 +9,7 @@ def mysqlconnect():
     conn = pymysql.connect(
         host= 'localhost',
         user='root',
-        password = "",
+        password = "Kitten567!",
         database="ToteDB",
     )
 
