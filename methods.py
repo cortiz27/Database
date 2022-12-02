@@ -5,7 +5,7 @@ def get_table_names(cursor):
     tables = cursor.fetchall()
 
     for i in tables:
-        output.append(str(i))
+        output.append(str(i[0]))
 
     return output
 
@@ -140,7 +140,7 @@ def print_column_data_format(table_name_string, cursor):
 
 def select_operator():
 
-    operators_dict = {1: "=", 2: ">", 3: "<", 4: ">=", 5: "<=", 6: "!="}
+    operators_dict = {1: "=", 2: ">", 3: "<", 4: ">=", 5: "<=", 6: "!=", 7: " BETWEEN ", 8: " LIKE "}
 
     print("Operator Options Available: ")
 
@@ -166,6 +166,9 @@ def get_where_conditions(table_name_string, cursor):
     num_of_conditions = input("How many conditions would you like to filter the " + table_name_string + " table on?: ")
     num_of_conditions = int(num_of_conditions)
 
+    if num_of_conditions == 0:
+        where_string = ""
+
     print("The following output includes the columns and data format for the " + table_name_string + " table, \nplease refer to these numbered options when selecting the column(s) you'd like to filter on: ")
 
     column_options_dictionary = print_column_data_format(table_name_string, cursor)
@@ -182,17 +185,39 @@ def get_where_conditions(table_name_string, cursor):
 
         where_string += operator + " "
 
-        condition = input("Please enter the condition: ")
+        if operator == " BETWEEN ":
 
-        if "int" in metadata_of_column[1]:
-            # because the value is an int, no quotes needed
-            where_string += condition
+            condition1 = input("Please enter lower limit condition: ")
+            if "date" in metadata_of_column[1]:
+                condition1 = "'" + condition1 + "'"
+            where_string += " " + condition1 + " AND "
+            condition2 = input("Please enter upper limit condition: ")
+            if "date" in metadata_of_column[1]:
+                condition2 = "'" + condition2 + "'"
+            where_string += " " + condition2 + " "
+
+        elif operator == " LIKE ":
+
+            print("When using LIKE operator to search for a similar string:\
+            \n- The percent sign (%) represents zero, one, or multiple characters\
+            \n- The underscore sign (_) represents one, single character\
+            \n- i.e: _r% - Finds any values that have "r" in the second position")
+
+            string_to_match = input("Please enter the string you'd like to search this condition for: ")
+            where_string += " '" + string_to_match + "' "
+
         else:
-            #in this case, column_value is a string type
-            quoted_condition = "'"
-            quoted_condition += condition
-            quoted_condition += "'"
-            where_string += quoted_condition + " "
+            condition = input("Please enter the condition: ")
+
+            if "int" in metadata_of_column[1]:
+                # because the value is an int, no quotes needed
+                where_string += condition
+            else:
+                #in this case, column_value is a string type
+                quoted_condition = "'"
+                quoted_condition += condition
+                quoted_condition += "'"
+                where_string += quoted_condition + " "
 
 
 
@@ -490,6 +515,8 @@ def view_table(table_name_string, cursor):
 
     cursor.execute(query)
     view = cursor.fetchall()
+    if len(view) == 0:
+        print("No matching result for this query.")
     for i in view:
         print(i)
 

@@ -54,8 +54,8 @@ def mysqlconnect():
     """
     TEST FOR view_table(table_name_string, cursor) - works good, just uncomment to run
     """
-    table_name = methods.get_table_name_selection(cur)
-    methods.view_table(table_name, cur)
+    # table_name = methods.get_table_name_selection(cur)
+    # methods.view_table(table_name, cur)
 
 
 

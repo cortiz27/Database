@@ -10,7 +10,7 @@ def main():
     conn = pymysql.connect(
         host='localhost',
         user='root',
-        password="Kitten567!",
+        password="1180673Ilovesql!",
         database="ToteDB",
     )
     cursor = conn.cursor()
@@ -459,7 +459,7 @@ def mysqlconnect():
     conn = pymysql.connect(
         host='localhost',
         user='root',
-        password="Kitten567!",
+        password="1180673Ilovesql!",
         database="ToteDB",
     )
 
@@ -484,14 +484,4 @@ def gettables(conn):
 
 
 if __name__ == "__main__":
-    conn = pymysql.connect(
-        host='localhost',
-        user='root',
-        password="Kitten567!",
-        database="ToteDB",
-    )
-    cursor = conn.cursor()
     main()
-    output = methods.get_table_names(cursor)
-    for i in output:
-        print(i)
