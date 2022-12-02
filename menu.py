@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import time
-
+import methods
 import pymysql
 from simple_term_menu import TerminalMenu
 
@@ -13,12 +13,13 @@ def main():
         password="Kitten567!",
         database="ToteDB",
     )
+    cursor = conn.cursor()
 
     main_menu_title = "Hello and welcome to Tote!\n  You may press the escape key or select 'Quit' at any time to " \
                       "quit. \n \n Here are the tables we have created: \n "
-    main_menu_items = ["Markets", "Market Stores", "Products", "Products Transactions", "Properties", "Stores",
-                       "Transactions", "User Properties", "Users", "User Stores", "Quit"]
-    # main_menu_items = gettables(conn)
+    # Getting the current names of tables from the sql database
+    main_menu_items = methods.get_table_name_selection(cursor)
+    main_menu_items.append("Quit")
     main_menu_cursor = "> "
     main_menu_cursor_style = ("fg_red", "bold")
     main_menu_style = ("fg_green", "fg_black", "bold")
@@ -34,12 +35,13 @@ def main():
         clear_screen=True,
     )
 
-    edit_menu_title = "  Edit Menu.\n  Press Q or Esc to back to main menu. \n"
-    edit_menu_items = ["Edit Config", "Save Settings", "Back to Main Menu"]
-    edit_menu_back = False
-    edit_menu = TerminalMenu(
-        edit_menu_items,
-        title=edit_menu_title,
+    table_view_title = "  Table selected.\n  Press Q or Esc to back to main menu. \n\nHere is a preview of this " \
+                       "table's data below:  \n\n"
+    table_view_items = ["View Table", "Modify Table", "Back to Main Menu"]
+    back = False
+    table_view_menu = TerminalMenu(
+        menu_entries=table_view_items,
+        title=table_view_title,
         menu_cursor=main_menu_cursor,
         menu_cursor_style=main_menu_cursor_style,
         menu_highlight_style=main_menu_style,
@@ -51,26 +53,157 @@ def main():
         main_sel = main_menu.show()
 
         if main_sel == 0:
-            while not edit_menu_back:
-                edit_sel = edit_menu.show()
-                if edit_sel == 0:
-                    print("Edit Config Selected")
-                    time.sleep(5)
-                elif edit_sel == 1:
-                    print("Save Selected")
-                    time.sleep(5)
-                elif edit_sel == 2 or edit_sel is None:
-                    edit_menu_back = True
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[0] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[0], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
                     print("Back Selected")
-            edit_menu_back = False
+            back = False
         elif main_sel == 1:
-            print("option 2 selected")
-            time.sleep(5)
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[1] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[1], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
         elif main_sel == 2:
-            print("option 3 selected")
-            time.sleep(5)
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[2] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[2], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 3:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[3] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[3], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 4:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[4] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[4], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 5:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[5] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[5], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 6:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[6] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[6], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 7:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[7] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[7], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 8:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[8] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[8], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
+        elif main_sel == 9:
+            while not back:
+                selection = table_view_menu.show()
+                # preview = methods.get_selected_table_preview("Users", cursor)
+                if selection == 0:
+                    print(main_menu_items[9] + " Table View Selected. \n Here is the table's data: \n\n")
+                    methods.show_selected_table(main_menu_items[9], cursor)
+                    time.sleep(10)
+                elif selection == 1:
+                    print("Modify Table Selected.\n Would you like to enter, update, or delete data from this table?\n")
+                    time.sleep(10)
+                elif selection == 2 or selection is None:
+                    back = True
+                    print("Back Selected")
+            back = False
         # if the user selects the last item in the menu set exit to true
-        elif main_sel == main_menu_items.len() or main_sel is None:
+        elif main_sel == len(main_menu_items) or main_sel is None:
             main_menu_exit = True
             print("Quit Selected")
 
@@ -107,4 +240,11 @@ def gettables(conn):
 
 
 if __name__ == "__main__":
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        password="Kitten567!",
+        database="ToteDB",
+    )
+    cursor = conn.cursor()
     main()
