@@ -36,16 +36,25 @@ def mysqlconnect():
     TEST FOR enter_data(table_name_string, cursor) - works good, just uncomment to run
     """
     # table_name = methods.get_table_name_selection(cur)
+    # methods.print_column_data_format(table_name, cur)
     # methods.enter_data(table_name, cur)
 
+    """
+    TEST FOR delete_entry(table_name_string, cursor) - works good, just uncomment to run
+    """
+    # table_name = methods.get_table_name_selection(cur)
+    # methods.delete_entry(table_name, cur)
 
     """
     BELOW WAS WHAT WAS ORIGINALLY IN THE main.py FILE AT THE BEGINNING
     """
-    #cur.execute("SELECT * FROM Users")
-    #output = cur.fetchall()
+    # cur.execute("SELECT * FROM Users")
+    # output = cur.fetchall()
+    # print(output)
     # for i in output:
     #     print(i)
+
+
 
     # To close the connection
     conn.close()
