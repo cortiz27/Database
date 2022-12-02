@@ -12,6 +12,7 @@ def main():
         user='root',
         password="Kitten567!",
         database="ToteDB",
+        autocommit=True
     )
     cursor = conn.cursor()
 
@@ -75,7 +76,7 @@ def main():
                     methods.get_selected_table_preview("Markets", cursor)
                     print("\n\n")
                     methods.view_table("Markets", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -84,19 +85,19 @@ def main():
                             methods.get_selected_table_preview("Markets", cursor)
                             print("\n\n")
                             methods.enter_data("Markets", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Markets", cursor)
                             print("\n\n")
                             methods.update_table("Markets", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Markets", cursor)
                             print("\n\n")
                             methods.delete_entry("Markets", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -113,7 +114,7 @@ def main():
                     methods.get_selected_table_preview("MarketStores", cursor)
                     print("\n\n")
                     methods.view_table("MarketStores", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -122,19 +123,19 @@ def main():
                             methods.get_selected_table_preview("MarketStores", cursor)
                             print("\n\n")
                             methods.enter_data("MarketStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("MarketStores", cursor)
                             print("\n\n")
                             methods.update_table("MarketStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("MarketStores", cursor)
                             print("\n\n")
                             methods.delete_entry("MarketStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -151,7 +152,7 @@ def main():
                     methods.get_selected_table_preview("Products", cursor)
                     print("\n\n")
                     methods.view_table("Products", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -160,19 +161,19 @@ def main():
                             methods.get_selected_table_preview("Products", cursor)
                             print("\n\n")
                             methods.enter_data("Products", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Products", cursor)
                             print("\n\n")
                             methods.update_table("Products", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Products", cursor)
                             print("\n\n")
                             methods.delete_entry("Products", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -189,7 +190,7 @@ def main():
                     methods.get_selected_table_preview("ProductsTransactions", cursor)
                     print("\n\n")
                     methods.view_table("ProductsTransactions", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -198,19 +199,19 @@ def main():
                             methods.get_selected_table_preview("ProductsTransactions", cursor)
                             print("\n\n")
                             methods.enter_data("ProductsTransactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("ProductsTransactions", cursor)
                             print("\n\n")
                             methods.update_table("ProductsTransactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("ProductsTransactions", cursor)
                             print("\n\n")
                             methods.delete_entry("ProductsTransactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -227,7 +228,7 @@ def main():
                     methods.get_selected_table_preview("Properties", cursor)
                     print("\n\n")
                     methods.view_table("Properties", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -236,19 +237,19 @@ def main():
                             methods.get_selected_table_preview("Properties", cursor)
                             print("\n\n")
                             methods.enter_data("Properties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Properties", cursor)
                             print("\n\n")
                             methods.update_table("Properties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Properties", cursor)
                             print("\n\n")
                             methods.delete_entry("Properties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -265,7 +266,7 @@ def main():
                     methods.get_selected_table_preview("Stores", cursor)
                     print("\n\n")
                     methods.view_table("Stores", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -274,19 +275,19 @@ def main():
                             methods.get_selected_table_preview("Stores", cursor)
                             print("\n\n")
                             methods.enter_data("Stores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Stores", cursor)
                             print("\n\n")
                             methods.update_table("Stores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Stores", cursor)
                             print("\n\n")
                             methods.delete_entry("Stores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -303,7 +304,7 @@ def main():
                     methods.get_selected_table_preview("Transactions", cursor)
                     print("\n\n")
                     methods.view_table("Transactions", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -312,19 +313,19 @@ def main():
                             methods.get_selected_table_preview("Transactions", cursor)
                             print("\n\n")
                             methods.enter_data("Transactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Transactions", cursor)
                             print("\n\n")
                             methods.update_table("Transactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Transactions", cursor)
                             print("\n\n")
                             methods.delete_entry("Transactions", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -341,7 +342,7 @@ def main():
                     methods.get_selected_table_preview("UserProperties", cursor)
                     print("\n\n")
                     methods.view_table("UserProperties", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -350,19 +351,19 @@ def main():
                             methods.get_selected_table_preview("UserProperties", cursor)
                             print("\n\n")
                             methods.enter_data("UserProperties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("UserProperties", cursor)
                             print("\n\n")
                             methods.update_table("UserProperties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("UserProperties", cursor)
                             print("\n\n")
                             methods.delete_entry("UserProperties", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -379,7 +380,7 @@ def main():
                     methods.get_selected_table_preview("Users", cursor)
                     print("\n\n")
                     methods.view_table("Users", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -388,19 +389,19 @@ def main():
                             methods.get_selected_table_preview("Users", cursor)
                             print("\n\n")
                             methods.enter_data("Users", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Users", cursor)
                             print("\n\n")
                             methods.update_table("Users", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("Users", cursor)
                             print("\n\n")
                             methods.delete_entry("Users", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -417,7 +418,7 @@ def main():
                     methods.get_selected_table_preview("UserStores", cursor)
                     print("\n\n")
                     methods.view_table("UserStores", cursor)
-                    time.sleep(10)
+                    time.sleep(40)
                 elif selection == 1:
                     while not method_back:
                         methodselect = methods_menu.show()
@@ -426,19 +427,19 @@ def main():
                             methods.get_selected_table_preview("UserStores", cursor)
                             print("\n\n")
                             methods.enter_data("UserStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 1:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("UserStores", cursor)
                             print("\n\n")
                             methods.update_table("UserStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 2:
                             print("Here is a preview of this tables data and format below: \n")
                             methods.get_selected_table_preview("UserStores", cursor)
                             print("\n\n")
                             methods.delete_entry("UserStores", cursor)
-                            time.sleep(10)
+                            time.sleep(15)
                         elif methodselect == 3 or methodselect is None:
                             method_back = True
                             print("back selected")
@@ -492,6 +493,3 @@ if __name__ == "__main__":
     )
     cursor = conn.cursor()
     main()
-    output = methods.get_table_names(cursor)
-    for i in output:
-        print(i)
