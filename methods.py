@@ -1,3 +1,14 @@
+def get_table_names(cursor):
+    output = []
+    cursor.execute("SHOW TABLES;")
+
+    tables = cursor.fetchall()
+
+    for i in tables:
+        output.append(str(i))
+
+    return output
+
 def get_table_name_selection(cursor):
     """
     :param cursor: we pass in the cursor connected to the database

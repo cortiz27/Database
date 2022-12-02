@@ -5,7 +5,6 @@ import methods
 If you type in your password down below after running the SQL Files in the MySQL WorkBench, it should work.
 """
 
-
 def mysqlconnect():
     # To connect MySQL database
     conn = pymysql.connect(
